@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
+  gem 'debugger'
 end
 
 group :production do
@@ -48,5 +49,3 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]

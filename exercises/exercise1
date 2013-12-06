@@ -1,0 +1,13 @@
+p = Brewery.create :name => "Brewdog", :year => 2007
+
+punk = Beer.create :name => "Punk IPA", :style => "IPA", :brewery_id => p.id
+nanny = Beer.create :name => "Nanny State", :style => "lowalcohol", :brewery_id => p.id
+
+Rating.create :score => 40, :beer_id => punk.id
+Rating.create :score => 24, :beer_id => punk.id
+
+Rating.create :score => 45, :beer_id => nanny.id
+Rating.create :score => 49, :beer_id => nanny.id
+
+
+
