@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @club.name %> - <%= @club.city %> </h2>
+<h3>Founded <%= @club.founded %></h3>
+
+<% if @club.users.empty? %>
+No members yet!
+<% else %>
+<h4>Members</h4>
+<ul>
+	<%= @club.users.each do | user | %>
+	<li><%= link_to user.username, user %></li> 
+	<% end %>
+</ul>
+<% end %>

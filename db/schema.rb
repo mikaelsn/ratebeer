@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124114648) do
+ActiveRecord::Schema.define(version: 20140130174711) do
+
+  create_table "beer_clubs", force: true do |t|
+    t.string   "name"
+    t.integer  "founded"
+    t.string   "city"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "beers", force: true do |t|
     t.string   "name"
@@ -30,11 +38,29 @@ ActiveRecord::Schema.define(version: 20131124114648) do
     t.datetime "updated_at"
   end
 
+  create_table "memberships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "beer_club_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberships", ["beer_club_id"], name: "index_memberships_on_beer_club_id"
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id"
+
   create_table "ratings", force: true do |t|
     t.integer  "score"
     t.integer  "beer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end

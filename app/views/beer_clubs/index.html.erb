@@ -1,0 +1,25 @@
+<h1>Listing Beer Clubs</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Founded</th>
+      <th>City</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clubs.each do |club| %>
+      <tr>
+        <td><%= link_to club.name, club %></td>
+        <td><%= club.founded %></td>
+        <td><%= club.city %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
