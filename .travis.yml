@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- 2.0.0
+script:
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: GQS8MKjhqgL2RPhHNXNbRcnJv7soXlx1Uk7aaQAXvUuYjmuJ/KIWbD0MjqB6zO+VzSZc8dyPeSMLkEXGg2Mjga8byovwAMx5dJFkQ0mxVn/tcGVb5pQXWZ9Srl27z4UJQVJwUDRETT6fi8060DuXerwt+R4bZsJ9KFLAV9uSsA4=
+  app: stormy-bayou-3192
+  on:
+    repo: mikaelsn/ratebeer
+  run: "rake db:migrate"
