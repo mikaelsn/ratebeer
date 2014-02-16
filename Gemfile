@@ -22,10 +22,13 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'webmock'
 end
 
-gem 'simplecov', require: false
+gem "rails-settings-cached", "0.3.1"
 
+gem 'simplecov', require: false
+gem 'httparty'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -2,7 +2,7 @@ Ratebeer::Application.routes.draw do
 
   resources :memberships
 
-  resources :beer_clubs, :only => [:show, :index]
+  resources :beer_clubs, :only => [:show, :index, :new]
 
   resources :users
 
@@ -17,6 +17,9 @@ Ratebeer::Application.routes.draw do
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
   resources :sessions, :only => [:new, :create, :destroy]
+
+  resources :places, :only => [:index, :show]
+  post 'places', to:'places#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
